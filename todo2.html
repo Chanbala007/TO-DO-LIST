@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled List App</title>
+   <link rel="stylesheet" href="todo2.css">
+</head>
+<body>
+    <div>
+        <input type="text" id="inp" placeholder="Add an item">
+        <button onclick="add()">ADD</button>
+        <ul id="ull">
+            <li>Jogging <button onclick="del(event)">DELETE</button></li>
+        </ul>
+    </div>
+
+    <script>
+        var a = document.getElementById("inp");
+        var b = document.getElementById("ull");
+
+        function add() {
+            if (a.value.trim() !== "") {
+                var s = document.createElement("li");
+                s.innerHTML = a.value + "<button onclick='del(event)'>DELETE</button>";
+                b.appendChild(s);
+                a.value = "";
+            } else {
+                alert("Please enter a valid item.");
+            }
+        }
+
+        function del(event) {
+            event.target.parentElement.remove();
+        }
+    </script>
+</body>
+</html>
